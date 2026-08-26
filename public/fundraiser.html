@@ -295,9 +295,7 @@
     }
 
 
-    /* =========================================
-       NEW GOAL / PROGRESS METER
-    ========================================= */
+    /* PROGRESS METER */
 
 
     .progress-card {
@@ -550,6 +548,8 @@
 
 
     .ball {
+      position: relative;
+
       aspect-ratio: 1;
 
       border-radius: 50%;
@@ -576,6 +576,10 @@
       align-items: center;
 
       justify-content: center;
+
+      overflow: hidden;
+
+      padding: 3px;
     }
 
 
@@ -615,17 +619,54 @@
     .ball.sold {
       background: #333;
 
-      color: #777;
+      color: #999;
 
       border-color: #555;
 
       cursor:
         not-allowed;
 
-      opacity: .65;
+      opacity: .9;
 
-      text-decoration:
-        line-through;
+      text-decoration: none;
+
+      flex-direction: column;
+
+      line-height: 1;
+    }
+
+
+    .ball-number {
+      display: block;
+
+      font-size: 15px;
+
+      font-weight: 1000;
+
+      line-height: 1;
+    }
+
+
+    .ball-donor {
+      display: block;
+
+      width: 90%;
+
+      margin-top: 4px;
+
+      overflow: hidden;
+
+      color: #f1e7b5;
+
+      font-size: 7px;
+
+      font-weight: 800;
+
+      line-height: 1.05;
+
+      white-space: nowrap;
+
+      text-overflow: ellipsis;
     }
 
 
@@ -862,9 +903,17 @@
 
 
       .ball {
-        font-size: 14px;
-
         border-width: 2px;
+      }
+
+
+      .ball-number {
+        font-size: 13px;
+      }
+
+
+      .ball-donor {
+        font-size: 6px;
       }
 
 
@@ -902,8 +951,6 @@
 
 
 
-    <!-- HERO -->
-
     <section class="hero">
 
       <div class="team-name">
@@ -921,8 +968,6 @@
     </section>
 
 
-
-    <!-- PLAYER CARD -->
 
     <section class="player-card">
 
@@ -964,9 +1009,7 @@
 
 
 
-    <!-- =========================================
-         NEW LIVE FUNDRAISER GOAL METER
-    ========================================== -->
+    <!-- LIVE GOAL METER -->
 
     <section class="progress-card">
 
@@ -1014,8 +1057,6 @@
 
 
 
-    <!-- FUNDRAISER -->
-
     <section class="fundraiser-box">
 
 
@@ -1052,8 +1093,6 @@
       ></div>
 
 
-
-      <!-- CHECKOUT -->
 
       <div class="checkout-panel">
 
@@ -1134,11 +1173,6 @@
 
 
   <script>
-
-
-    /* =========================================
-       PLAYER ROSTER
-    ========================================= */
 
 
     const PLAYERS = {
@@ -1292,11 +1326,6 @@
 
 
 
-    /* =========================================
-       PAGE SETUP
-    ========================================= */
-
-
     const params =
       new URLSearchParams(
         window.location.search
@@ -1370,10 +1399,6 @@
       );
 
 
-
-    /* NEW GOAL METER ELEMENTS */
-
-
     const raisedText =
       document.getElementById(
         "raisedText"
@@ -1406,11 +1431,6 @@
     let baseballData =
       [];
 
-
-
-    /* =========================================
-       PLAYER INITIALIZATION
-    ========================================= */
 
 
     if (
@@ -1471,11 +1491,6 @@
 
 
 
-    /* =========================================
-       LOAD FUNDRAISER
-    ========================================= */
-
-
     async function loadBaseballs() {
 
       try {
@@ -1523,17 +1538,6 @@
         baseballData =
           data.baseballs ||
           [];
-
-
-        /*
-          UPDATE GOAL METER.
-
-          If the API already returns totals,
-          use those values.
-
-          Otherwise calculate the total
-          directly from the sold baseballs.
-        */
 
 
         let raisedCents =
@@ -1641,11 +1645,6 @@
 
 
 
-    /* =========================================
-       GOAL METER
-    ========================================= */
-
-
     function updateProgress(
       raisedCents,
       sponsoredCount
@@ -1721,11 +1720,6 @@
 
 
 
-    /* =========================================
-       BASEBALL BOARD
-    ========================================= */
-
-
     function renderBaseballs() {
 
 
@@ -1772,8 +1766,29 @@
           "ball";
 
 
-        button.textContent =
+
+        /*
+          NUMBER DISPLAY
+        */
+
+
+        const numberSpan =
+          document.createElement(
+            "span"
+          );
+
+
+        numberSpan.className =
+          "ball-number";
+
+
+        numberSpan.textContent =
           number;
+
+
+        button.appendChild(
+          numberSpan
+        );
 
 
 
@@ -1791,13 +1806,54 @@
             true;
 
 
+
+          /*
+            DISPLAY DONOR NAME
+          */
+
+
+          const displayDonor =
+            String(
+              record.donor_name ||
+              "Anonymous"
+            ).trim() ||
+            "Anonymous";
+
+
+          const donorSpan =
+            document.createElement(
+              "span"
+            );
+
+
+          donorSpan.className =
+            "ball-donor";
+
+
+          donorSpan.textContent =
+            displayDonor;
+
+
+          button.appendChild(
+            donorSpan
+          );
+
+
           button.title =
             "Baseball #" +
             number +
-            " has already been sponsored.";
+            " sponsored by " +
+            displayDonor;
 
 
         } else {
+
+
+          button.title =
+            "Baseball #" +
+            number +
+            " — $" +
+            number;
 
 
           button.addEventListener(
@@ -1823,11 +1879,6 @@
 
     }
 
-
-
-    /* =========================================
-       BALL SELECTION
-    ========================================= */
 
 
     function toggleBall(
@@ -1888,11 +1939,6 @@
 
 
 
-    /* =========================================
-       CHECKOUT SUMMARY
-    ========================================= */
-
-
     function updateSummary() {
 
 
@@ -1949,11 +1995,6 @@
 
 
 
-    /* =========================================
-       ANONYMOUS DONATION
-    ========================================= */
-
-
     anonymous.addEventListener(
 
       "change",
@@ -1978,11 +2019,6 @@
 
     );
 
-
-
-    /* =========================================
-       STRIPE CHECKOUT
-    ========================================= */
 
 
     checkoutButton.addEventListener(
@@ -2150,11 +2186,6 @@
 
 
 
-    /* =========================================
-       RETURN FROM STRIPE
-    ========================================= */
-
-
     const payment =
       params.get(
         "payment"
@@ -2173,13 +2204,6 @@
 
       status.style.color =
         "#ffffff";
-
-
-      /*
-        Reload after Stripe returns so the
-        meter and sold baseballs update as
-        soon as the webhook finishes.
-      */
 
 
       setTimeout(
