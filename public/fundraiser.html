@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>West Pines Cobras | Road to Cooperstown</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --purple: #24156f;
+      --purple-dark: #130b42;
+      --gold: #d4bd58;
+      --white: #ffffff;
+      --black: #050505;
+      --gray: #a8a8b3;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, #2b1b70 0%, #100c26 32%, #050507 70%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    .page {
+      width: min(1100px, 94%);
+      margin: 0 auto;
+      padding: 30px 0 70px;
+    }
+
+    .top-link {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .top-link:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .team-name {
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      font-weight: 1000;
+      font-style: italic;
+      line-height: 0.95;
+      text-transform: uppercase;
+      text-shadow: 5px 5px 0 rgba(0,0,0,.45);
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .player-card {
+      max-width: 700px;
+      margin: 30px auto;
+      background: linear-gradient(
+        145deg,
+        rgba(36,21,111,.95),
+        rgba(9,7,20,.98)
+      );
+      border: 2px solid var(--gold);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,.45);
+    }
+
+    .player-photo-wrap {
+      position: relative;
+      height: 430px;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .player-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+    }
+
+    .number-badge {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--purple);
+      border: 5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 1000;
+      box-shadow: 0 8px 20px rgba(0,0,0,.4);
+    }
+
+    .player-info {
+      padding: 25px 25px 28px;
+      text-align: center;
+    }
+
+    .player-info h2 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 1000;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .player-info p {
+      color: #ddd;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+
+    .fundraiser-box {
+      max-width: 900px;
+      margin: 35px auto 0;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(212,189,88,.5);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .fundraiser-box h3 {
+      text-align: center;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 1000;
+      font-style: italic;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .fundraiser-box h3 span {
+      color: var(--gold);
+    }
+
+    .instructions {
+      max-width: 680px;
+      margin: 0 auto 25px;
+      text-align: center;
+      color: #ddd;
+      line-height: 1.55;
+    }
+
+    .status {
+      text-align: center;
+      color: var(--gold);
+      font-weight: 800;
+      margin: 15px 0;
+      min-height: 22px;
+    }
+
+    .baseballs {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .ball {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      background: white;
+      color: var(--purple-dark);
+      font-size: 16px;
+      font-weight: 1000;
+      cursor: pointer;
+      transition: .15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ball:hover:not(:disabled) {
+      transform: scale(1.08);
+      background: var(--gold);
+    }
+
+    .ball.selected {
+      background: var(--gold);
+      color: #000;
+      transform: scale(1.06);
+      box-shadow: 0 0 0 3px rgba(255,255,255,.25);
+    }
+
+    .ball.sold {
+      background: #333;
+      color: #777;
+      border-color: #555;
+      cursor: not-allowed;
+      opacity: .65;
+      text-decoration: line-through;
+    }
+
+    .checkout-panel {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,.15);
+    }
+
+    .summary {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .summary-label {
+      color: #aaa;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    .total {
+      color: var(--gold);
+      font-size: 38px;
+      font-weight: 1000;
+    }
+
+    .donor-field {
+      max-width: 500px;
+      margin: 0 auto 18px;
+    }
+
+    .donor-field label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 800;
+    }
+
+    .donor-field input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid #777;
+      background: white;
+      color: #111;
+      font-size: 16px;
+    }
+
+    .anonymous {
+      max-width: 500px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #ddd;
+    }
+
+    .anonymous input {
+      width: 18px;
+      height: 18px;
+    }
+
+    .checkout-button {
+      width: min(500px, 100%);
+      margin: 0 auto;
+      display: block;
+      border: none;
+      border-radius: 12px;
+      padding: 17px 20px;
+      background: var(--gold);
+      color: #111;
+      font-size: 18px;
+      font-weight: 1000;
+      cursor: pointer;
+    }
+
+    .checkout-button:hover {
+      filter: brightness(1.08);
+    }
+
+    .checkout-button:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 45px;
+      color: #888;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .baseballs {
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      .player-photo-wrap {
+        height: 390px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        width: 94%;
+        padding-top: 20px;
+      }
+
+      .fundraiser-box {
+        padding: 20px 14px;
+      }
+
+      .baseballs {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 7px;
+      }
+
+      .ball {
+        font-size: 14px;
+        border-width: 2px;
+      }
+
+      .player-photo-wrap {
+        height: 360px;
+      }
+
+      .number-badge {
+        width: 65px;
+        height: 65px;
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <a class="top-link" href="/">← Choose Another Player</a>
+
+    <section class="hero">
+      <div class="team-name">West Pines Cobras Baseball</div>
+
+      <h1>
+        Road to <span>Cooperstown</span>
+      </h1>
+    </section>
+
+    <section class="player-card">
+
+      <div class="player-photo-wrap">
+        <img
+          id="playerPhoto"
+          class="player-photo"
+          src=""
+          alt="West Pines Cobras Player"
+        />
+
+        <div id="playerNumber" class="number-badge"></div>
+      </div>
+
+      <div class="player-info">
+        <h2 id="playerName">Loading Player...</h2>
+
+        <p>
+          Help support this West Pines Cobras player on the
+          Road to Cooperstown.
+        </p>
+      </div>
+
+    </section>
+
+    <section class="fundraiser-box">
+
+      <h3>
+        Sponsor a <span>Baseball</span>
+      </h3>
+
+      <p class="instructions">
+        Choose one or more available baseballs below.
+        The number on each baseball equals the donation amount.
+        For example, baseball #25 is a $25 donation.
+      </p>
+
+      <div id="status" class="status">
+        Loading available baseballs...
+      </div>
+
+      <div id="baseballs" class="baseballs"></div>
+
+      <div class="checkout-panel">
+
+        <div class="summary">
+          <div class="summary-label">Your Donation</div>
+          <div id="total" class="total">$0</div>
+        </div>
+
+        <div class="donor-field">
+          <label for="donorName">Donor Name</label>
+
+          <input
+            id="donorName"
+            type="text"
+            placeholder="Enter your name"
+            autocomplete="name"
+          />
+        </div>
+
+        <label class="anonymous">
+          <input id="anonymous" type="checkbox" />
+          Donate anonymously
+        </label>
+
+        <button
+          id="checkoutButton"
+          class="checkout-button"
+          type="button"
+          disabled
+        >
+          Select Baseballs to Continue
+        </button>
+
+      </div>
+
+    </section>
+
+    <div class="footer">
+      West Pines Cobras • Road to Cooperstown
+    </div>
+
+  </main>
+
+
+  <script>
+    const PLAYERS = {
+      "tyler-bloom": {
+        name: "Tyler Bloom",
+        number: "1",
+        photo: "/tyler-bloom.jpeg"
+      },
+
+      "jonas-zamora": {
+        name: "Jonas Zamora",
+        number: "2",
+        photo: "/jonas-zamora.jpeg"
+      },
+
+      "lucas-sanchez": {
+        name: "Lucas Sanchez",
+        number: "6",
+        photo: "/lucas-sanchez.jpeg"
+      },
+
+      "adam-sainz": {
+        name: "Adam Sainz",
+        number: "7",
+        photo: "/adam-sainz.jpeg"
+      },
+
+      "jacob-fernandez": {
+        name: "Jacob Fernandez",
+        number: "16",
+        photo: "/jacob-fernandez.jpeg"
+      },
+
+      "riley-suarez": {
+        name: "Riley Suarez",
+        number: "21",
+        photo: "/riley-suarez.jpeg"
+      },
+
+      "jayden-arencibia": {
+        name: "Jayden Arencibia",
+        number: "22",
+        photo: "/jayden-arencibia.jpeg"
+      },
+
+      "dylan-botett": {
+        name: "Dylan Botett",
+        number: "23",
+        photo: "/dylan-botett.jpeg"
+      },
+
+      "aramis-diaz": {
+        name: "Aramis Diaz",
+        number: "24",
+        photo: "/aramis-diaz.jpeg"
+      },
+
+      "joseph-brady": {
+        name: "Joseph Brady",
+        number: "27",
+        photo: "/josephbrady27.jpeg"
+      },
+
+      "santiago-ponce": {
+        name: "Santiago Ponce",
+        number: "33",
+        photo: "/santiago-ponce.jpeg"
+      },
+
+      "sebastian-ponce": {
+        name: "Sebastian Ponce",
+        number: "51",
+        photo: "/sebastian-ponce.jpeg"
+      }
+    };
+
+
+    const params = new URLSearchParams(window.location.search);
+
+    const playerKey = params.get("player");
+
+    const player = PLAYERS[playerKey];
+
+
+    const playerName =
+      document.getElementById("playerName");
+
+    const playerNumber =
+      document.getElementById("playerNumber");
+
+    const playerPhoto =
+      document.getElementById("playerPhoto");
+
+    const baseballContainer =
+      document.getElementById("baseballs");
+
+    const status =
+      document.getElementById("status");
+
+    const totalElement =
+      document.getElementById("total");
+
+    const checkoutButton =
+      document.getElementById("checkoutButton");
+
+    const donorName =
+      document.getElementById("donorName");
+
+    const anonymous =
+      document.getElementById("anonymous");
+
+
+    let selectedBalls = [];
+
+    let baseballData = [];
+
+
+    if (!player) {
+
+      playerName.textContent = "Player Not Found";
+
+      status.textContent =
+        "Please return to the team page and select a player.";
+
+      playerPhoto.style.display = "none";
+
+      playerNumber.style.display = "none";
+
+    } else {
+
+      playerName.textContent = player.name;
+
+      playerNumber.textContent =
+        "#" + player.number;
+
+      playerPhoto.src = player.photo;
+
+      playerPhoto.alt =
+        player.name + " - West Pines Cobras";
+
+      document.title =
+        player.name +
+        " | West Pines Cobras Cooperstown Fundraiser";
+
+      loadBaseballs();
+    }
+
+
+    async function loadBaseballs() {
+
+      try {
+
+        status.textContent =
+          "Loading available baseballs...";
+
+        const response = await fetch(
+          "/api/fundraiser?player=" +
+          encodeURIComponent(playerKey),
+          {
+            cache: "no-store"
+          }
+        );
+
+
+        const data = await response.json();
+
+
+        if (!response.ok || !data.success) {
+
+          throw new Error(
+            data.error ||
+            "Unable to load fundraiser."
+          );
+        }
+
+
+        baseballData =
+          data.baseballs || [];
+
+
+        renderBaseballs();
+
+
+        status.textContent =
+          "Select one or more available baseballs.";
+
+      } catch (error) {
+
+        console.error(error);
+
+        status.textContent =
+          "Unable to load baseballs. Please refresh the page.";
+
+      }
+
+    }
+
+
+    function renderBaseballs() {
+
+      baseballContainer.innerHTML = "";
+
+
+      for (let number = 1; number <= 100; number++) {
+
+        const record =
+          baseballData.find(
+            ball =>
+              Number(ball.ball_number) === number
+          );
+
+
+        const isSold =
+          record &&
+          record.status === "sold";
+
+
+        const button =
+          document.createElement("button");
+
+
+        button.type = "button";
+
+        button.className = "ball";
+
+        button.textContent = number;
+
+
+        if (isSold) {
+
+          button.classList.add("sold");
+
+          button.disabled = true;
+
+          button.title =
+            "Baseball #" +
+            number +
+            " has already been sponsored.";
+
+        } else {
+
+          button.addEventListener(
+            "click",
+            () => toggleBall(number, button)
+          );
+
+        }
+
+
+        baseballContainer.appendChild(button);
+
+      }
+
+    }
+
+
+    function toggleBall(number, button) {
+
+      if (selectedBalls.includes(number)) {
+
+        selectedBalls =
+          selectedBalls.filter(
+            value => value !== number
+          );
+
+        button.classList.remove("selected");
+
+      } else {
+
+        selectedBalls.push(number);
+
+        selectedBalls.sort(
+          (a, b) => a - b
+        );
+
+        button.classList.add("selected");
+
+      }
+
+
+      updateSummary();
+
+    }
+
+
+    function updateSummary() {
+
+      const total =
+        selectedBalls.reduce(
+          (sum, number) => sum + number,
+          0
+        );
+
+
+      totalElement.textContent =
+        "$" + total.toLocaleString();
+
+
+      if (selectedBalls.length === 0) {
+
+        checkoutButton.disabled = true;
+
+        checkoutButton.textContent =
+          "Select Baseballs to Continue";
+
+      } else {
+
+        checkoutButton.disabled = false;
+
+        checkoutButton.textContent =
+          "Donate $" +
+          total.toLocaleString() +
+          " & Continue";
+
+      }
+
+    }
+
+
+    anonymous.addEventListener(
+      "change",
+      function () {
+
+        donorName.disabled =
+          anonymous.checked;
+
+        if (anonymous.checked) {
+
+          donorName.value = "";
+
+        }
+
+      }
+    );
+
+
+    checkoutButton.addEventListener(
+      "click",
+      async function () {
+
+        if (
+          !player ||
+          selectedBalls.length === 0
+        ) {
+          return;
+        }
+
+
+        const name =
+          anonymous.checked
+            ? "Anonymous"
+            : donorName.value.trim();
+
+
+        if (!name) {
+
+          alert(
+            "Please enter your name or select Donate anonymously."
+          );
+
+          donorName.focus();
+
+          return;
+        }
+
+
+        checkoutButton.disabled = true;
+
+        checkoutButton.textContent =
+          "Opening Secure Checkout...";
+
+
+        try {
+
+          const response = await fetch(
+            "/api/create-checkout",
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+
+              body: JSON.stringify({
+                playerKey: playerKey,
+                baseballNumbers: selectedBalls,
+                donorName: name
+              })
+            }
+          );
+
+
+          const data =
+            await response.json();
+
+
+          if (!response.ok || !data.success) {
+
+            throw new Error(
+              data.error ||
+              "Unable to create checkout."
+            );
+
+          }
+
+
+          if (!data.url) {
+
+            throw new Error(
+              "Checkout URL was not returned."
+            );
+
+          }
+
+
+          window.location.href =
+            data.url;
+
+
+        } catch (error) {
+
+          console.error(error);
+
+          alert(
+            error.message ||
+            "Unable to start checkout. Please try again."
+          );
+
+
+          checkoutButton.disabled = false;
+
+          updateSummary();
+
+        }
+
+      }
+    );
+
+
+    const payment =
+      params.get("payment");
+
+
+    if (payment === "success") {
+
+      status.textContent =
+        "Thank you! Your donation was successful.";
+
+      status.style.color =
+        "#ffffff";
+
+    }
+
+  </script>
+
+</body>
+</html>
