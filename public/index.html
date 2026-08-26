@@ -19,7 +19,6 @@
   />
 
   <style>
-
     :root {
       --bg: #050507;
       --bg2: #0b0912;
@@ -49,16 +48,13 @@
         );
     }
 
-
     * {
       box-sizing: border-box;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
-
 
     body {
       margin: 0;
@@ -74,7 +70,6 @@
       color: var(--white);
 
       background:
-
         radial-gradient(
           circle at top,
           rgba(
@@ -104,23 +99,19 @@
         );
     }
 
-
     a {
       color: inherit;
       text-decoration: none;
     }
-
 
     button,
     input {
       font: inherit;
     }
 
-
     button {
       cursor: pointer;
     }
-
 
     .page-shell {
       width:
@@ -137,16 +128,10 @@
         80px;
     }
 
-
-    /* HERO */
-
-
     .hero {
       text-align: center;
-
       margin-bottom: 36px;
     }
-
 
     .team-logo {
       display: block;
@@ -176,7 +161,6 @@
         );
     }
 
-
     .team-kicker {
       margin-bottom: 12px;
 
@@ -190,7 +174,6 @@
 
       text-transform: uppercase;
     }
-
 
     .hero-title {
       margin: 0;
@@ -213,35 +196,20 @@
       text-transform: uppercase;
 
       text-shadow:
-
-        4px 4px 0
-        var(--purple),
-
-        7px 7px 0
-        rgba(
-          217,
-          191,
-          97,
-          0.20
-        );
+        4px 4px 0 var(--purple),
+        7px 7px 0 rgba(217,191,97,.20);
     }
-
 
     .hero-title .road {
       display: block;
-
       color: var(--white);
     }
 
-
     .hero-title .coop {
       display: block;
-
       margin-top: 12px;
-
       color: var(--gold);
     }
-
 
     .hero-subtitle {
       width:
@@ -260,14 +228,9 @@
       line-height: 1.65;
     }
 
-
-    /* PLAYER SECTION */
-
-
     .choose-section {
       margin-top: 48px;
     }
-
 
     .choose-title {
       margin: 0;
@@ -290,7 +253,6 @@
       text-transform: uppercase;
     }
 
-
     .choose-subtitle {
       margin:
         10px
@@ -303,7 +265,6 @@
 
       font-size: 14px;
     }
-
 
     .player-grid {
       display: grid;
@@ -320,16 +281,13 @@
       gap: 18px;
     }
 
-
     .player-card {
       position: relative;
-
       overflow: hidden;
 
       min-height: 330px;
 
       display: flex;
-
       flex-direction: column;
 
       border:
@@ -341,54 +299,28 @@
       background:
         linear-gradient(
           145deg,
-          rgba(
-            26,
-            19,
-            45,
-            0.98
-          ),
-          rgba(
-            6,
-            5,
-            10,
-            0.99
-          )
+          rgba(26,19,45,.98),
+          rgba(6,5,10,.99)
         );
 
       box-shadow:
         0 14px 34px
-        rgba(
-          0,
-          0,
-          0,
-          0.30
-        );
+        rgba(0,0,0,.30);
 
       transition:
-        transform 0.16s ease,
-        border-color 0.16s ease,
-        box-shadow 0.16s ease;
+        transform .16s ease,
+        border-color .16s ease,
+        box-shadow .16s ease;
     }
 
-
     .player-card:hover {
-      transform:
-        translateY(
-          -4px
-        );
-
+      transform: translateY(-4px);
       border-color: var(--gold);
 
       box-shadow:
         0 18px 40px
-        rgba(
-          0,
-          0,
-          0,
-          0.38
-        );
+        rgba(0,0,0,.38);
     }
-
 
     .photo-wrap {
       position: relative;
@@ -402,29 +334,23 @@
       background: #111;
     }
 
-
     .player-photo {
       width: 100%;
       height: 100%;
 
       object-fit: cover;
 
-      object-position: center 20%;
+      object-position: center 22%;
 
       display: block;
 
       transition:
-        transform 0.2s ease;
+        transform .2s ease;
     }
-
 
     .player-card:hover .player-photo {
-      transform:
-        scale(
-          1.025
-        );
+      transform: scale(1.025);
     }
-
 
     .photo-overlay {
       position: absolute;
@@ -433,23 +359,17 @@
       right: 0;
       bottom: 0;
 
-      height: 46%;
+      height: 48%;
 
       background:
         linear-gradient(
           180deg,
           transparent,
-          rgba(
-            5,
-            4,
-            10,
-            0.92
-          )
+          rgba(5,4,10,.94)
         );
 
       pointer-events: none;
     }
-
 
     .jersey-badge {
       position: absolute;
@@ -457,12 +377,11 @@
       left: 14px;
       bottom: 14px;
 
-      min-width: 56px;
-      height: 56px;
+      min-width: 58px;
+      height: 58px;
 
       padding:
-        0
-        12px;
+        0 12px;
 
       display: flex;
 
@@ -481,14 +400,8 @@
 
       box-shadow:
         0 5px 18px
-        rgba(
-          0,
-          0,
-          0,
-          0.28
-        );
+        rgba(0,0,0,.28);
     }
-
 
     .player-info {
       flex: 1;
@@ -507,7 +420,6 @@
         19px;
     }
 
-
     .player-name {
       display: block;
 
@@ -519,7 +431,6 @@
 
       line-height: 1.15;
     }
-
 
     .support-text {
       display: block;
@@ -537,7 +448,6 @@
       text-transform: uppercase;
     }
 
-
     .arrow {
       color: var(--gold);
 
@@ -545,10 +455,6 @@
 
       font-weight: 900;
     }
-
-
-    /* GENERAL DONATION */
-
 
     .general-donation {
       margin-top: 52px;
@@ -562,44 +468,22 @@
       border-radius: 22px;
 
       background:
-
         radial-gradient(
           circle at top,
-          rgba(
-            217,
-            191,
-            97,
-            0.07
-          ),
+          rgba(217,191,97,.07),
           transparent 55%
         ),
 
         linear-gradient(
           145deg,
-          rgba(
-            32,
-            23,
-            56,
-            0.97
-          ),
-          rgba(
-            7,
-            5,
-            12,
-            0.99
-          )
+          rgba(32,23,56,.97),
+          rgba(7,5,12,.99)
         );
 
       box-shadow:
         0 18px 50px
-        rgba(
-          0,
-          0,
-          0,
-          0.28
-        );
+        rgba(0,0,0,.28);
     }
-
 
     .general-kicker {
       text-align: center;
@@ -614,7 +498,6 @@
 
       text-transform: uppercase;
     }
-
 
     .general-title {
       margin:
@@ -640,7 +523,6 @@
       text-transform: uppercase;
     }
 
-
     .general-description {
       max-width: 690px;
 
@@ -654,7 +536,6 @@
       line-height: 1.6;
     }
 
-
     .general-form {
       width:
         min(
@@ -665,11 +546,9 @@
       margin: 0 auto;
     }
 
-
     .general-field {
       margin-bottom: 16px;
     }
-
 
     .general-field label {
       display: block;
@@ -687,7 +566,6 @@
       text-transform: uppercase;
     }
 
-
     .general-field input {
       width: 100%;
 
@@ -698,12 +576,7 @@
 
       border:
         1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.18
-        );
+        rgba(255,255,255,.18);
 
       border-radius: 11px;
 
@@ -716,25 +589,17 @@
       font-size: 16px;
     }
 
-
     .general-field input:focus {
       border-color: var(--gold);
 
       box-shadow:
         0 0 0 3px
-        rgba(
-          217,
-          191,
-          97,
-          0.08
-        );
+        rgba(217,191,97,.08);
     }
-
 
     .amount-wrap {
       position: relative;
     }
-
 
     .amount-symbol {
       position: absolute;
@@ -743,10 +608,7 @@
 
       top: 50%;
 
-      transform:
-        translateY(
-          -50%
-        );
+      transform: translateY(-50%);
 
       color: var(--gold);
 
@@ -755,11 +617,9 @@
       font-weight: 900;
     }
 
-
     .amount-wrap input {
       padding-left: 35px;
     }
-
 
     .anonymous-option {
       display: flex;
@@ -778,14 +638,12 @@
       font-weight: 800;
     }
 
-
     .anonymous-option input {
       width: 18px;
       height: 18px;
 
       accent-color: var(--purple-light);
     }
-
 
     .general-button {
       width: 100%;
@@ -812,22 +670,14 @@
       text-transform: uppercase;
     }
 
-
     .general-button:hover {
-      transform:
-        translateY(
-          -1px
-        );
+      transform: translateY(-1px);
     }
-
 
     .general-button:disabled {
-      opacity: 0.5;
-
-      cursor:
-        not-allowed;
+      opacity: .5;
+      cursor: not-allowed;
     }
-
 
     .general-note {
       margin:
@@ -843,7 +693,6 @@
 
       text-align: center;
     }
-
 
     .general-status {
       display: none;
@@ -862,7 +711,6 @@
       font-weight: 800;
     }
 
-
     .general-status.error {
       display: block;
 
@@ -870,22 +718,11 @@
 
       border:
         1px solid
-        rgba(
-          255,
-          80,
-          90,
-          0.45
-        );
+        rgba(255,80,90,.45);
 
       background:
-        rgba(
-          255,
-          80,
-          90,
-          0.10
-        );
+        rgba(255,80,90,.10);
     }
-
 
     .general-status.success {
       display: block;
@@ -894,22 +731,11 @@
 
       border:
         1px solid
-        rgba(
-          34,
-          197,
-          94,
-          0.40
-        );
+        rgba(34,197,94,.40);
 
       background:
-        rgba(
-          34,
-          197,
-          94,
-          0.10
-        );
+        rgba(34,197,94,.10);
     }
-
 
     .footer {
       margin-top: 48px;
@@ -923,17 +749,11 @@
       line-height: 1.7;
     }
 
-
     .footer strong {
       color: white;
     }
 
-
-    @media (
-      max-width:
-      900px
-    ) {
-
+    @media (max-width: 900px) {
       .player-grid {
         grid-template-columns:
           repeat(
@@ -944,21 +764,13 @@
             )
           );
       }
-
     }
 
-
-    @media (
-      max-width:
-      560px
-    ) {
-
+    @media (max-width: 560px) {
       .page-shell {
         width: 94%;
-
         padding-top: 20px;
       }
-
 
       .team-logo {
         width:
@@ -968,49 +780,36 @@
           );
       }
 
-
       .player-grid {
         grid-template-columns: 1fr;
-
         gap: 14px;
       }
-
 
       .player-card {
         min-height: 0;
       }
 
-
       .photo-wrap {
         aspect-ratio: 5 / 4;
       }
 
-
       .player-name {
         font-size: 18px;
       }
-
 
       .general-donation {
         padding:
           25px
           17px;
       }
-
     }
-
   </style>
 
 </head>
 
-
 <body>
 
-
 <main class="page-shell">
-
-
-  <!-- HERO -->
 
   <section class="hero">
 
@@ -1020,14 +819,11 @@
       class="team-logo"
     />
 
-
     <div class="team-kicker">
       WEST PINES COBRAS BASEBALL
     </div>
 
-
     <h1 class="hero-title">
-
       <span class="road">
         Road to
       </span>
@@ -1035,30 +831,22 @@
       <span class="coop">
         Cooperstown
       </span>
-
     </h1>
 
-
     <p class="hero-subtitle">
-
       Help the West Pines Cobras make the Cooperstown dream
       a reality. Choose the player you would like to support
       and sponsor one or more baseballs.
-
     </p>
 
   </section>
 
-
-
-  <!-- PLAYER LIST -->
 
   <section class="choose-section">
 
     <h2 class="choose-title">
       Choose Your Player
     </h2>
-
 
     <p class="choose-subtitle">
       Select a player below to visit their individual fundraiser.
@@ -1067,16 +855,13 @@
 
     <div class="player-grid">
 
-
       <a
         class="player-card"
         href="/fundraiser.html?player=tyler-bloom"
       >
-
         <div class="photo-wrap">
-
           <img
-            src="/players/tyler-bloom.jpg"
+            src="/tyler-bloom.jpeg"
             alt="Tyler Bloom"
             class="player-photo"
           />
@@ -1086,13 +871,10 @@
           <div class="jersey-badge">
             #1
           </div>
-
         </div>
 
         <div class="player-info">
-
           <div>
-
             <span class="player-name">
               Tyler Bloom
             </span>
@@ -1100,28 +882,20 @@
             <span class="support-text">
               Support Tyler
             </span>
-
           </div>
 
-          <span class="arrow">
-            ›
-          </span>
-
+          <span class="arrow">›</span>
         </div>
-
       </a>
-
 
 
       <a
         class="player-card"
         href="/fundraiser.html?player=jonas-zamora"
       >
-
         <div class="photo-wrap">
-
           <img
-            src="/players/jonas-zamora.jpg"
+            src="/jonas-zamora.jpeg"
             alt="Jonas Zamora"
             class="player-photo"
           />
@@ -1131,13 +905,10 @@
           <div class="jersey-badge">
             #2
           </div>
-
         </div>
 
         <div class="player-info">
-
           <div>
-
             <span class="player-name">
               Jonas Zamora
             </span>
@@ -1145,28 +916,20 @@
             <span class="support-text">
               Support Jonas
             </span>
-
           </div>
 
-          <span class="arrow">
-            ›
-          </span>
-
+          <span class="arrow">›</span>
         </div>
-
       </a>
-
 
 
       <a
         class="player-card"
         href="/fundraiser.html?player=lucas-sanchez"
       >
-
         <div class="photo-wrap">
-
           <img
-            src="/players/lucas-sanchez.jpg"
+            src="/lucas-sanchez.jpeg"
             alt="Lucas Sanchez"
             class="player-photo"
           />
@@ -1176,13 +939,10 @@
           <div class="jersey-badge">
             #6
           </div>
-
         </div>
 
         <div class="player-info">
-
           <div>
-
             <span class="player-name">
               Lucas Sanchez
             </span>
@@ -1190,28 +950,20 @@
             <span class="support-text">
               Support Lucas
             </span>
-
           </div>
 
-          <span class="arrow">
-            ›
-          </span>
-
+          <span class="arrow">›</span>
         </div>
-
       </a>
-
 
 
       <a
         class="player-card"
         href="/fundraiser.html?player=adam-sainz"
       >
-
         <div class="photo-wrap">
-
           <img
-            src="/players/adam-sainz.jpg"
+            src="/adam-sainz.jpeg"
             alt="Adam Sainz"
             class="player-photo"
           />
@@ -1221,13 +973,10 @@
           <div class="jersey-badge">
             #7
           </div>
-
         </div>
 
         <div class="player-info">
-
           <div>
-
             <span class="player-name">
               Adam Sainz
             </span>
@@ -1235,28 +984,20 @@
             <span class="support-text">
               Support Adam
             </span>
-
           </div>
 
-          <span class="arrow">
-            ›
-          </span>
-
+          <span class="arrow">›</span>
         </div>
-
       </a>
-
 
 
       <a
         class="player-card"
         href="/fundraiser.html?player=jacob-fernandez"
       >
-
         <div class="photo-wrap">
-
           <img
-            src="/players/jacob-fernandez.jpg"
+            src="/jacob-fernandez.jpeg"
             alt="Jacob Fernandez"
             class="player-photo"
           />
@@ -1266,13 +1007,10 @@
           <div class="jersey-badge">
             #16
           </div>
-
         </div>
 
         <div class="player-info">
-
           <div>
-
             <span class="player-name">
               Jacob Fernandez
             </span>
@@ -1280,28 +1018,20 @@
             <span class="support-text">
               Support Jacob
             </span>
-
           </div>
 
-          <span class="arrow">
-            ›
-          </span>
-
+          <span class="arrow">›</span>
         </div>
-
       </a>
-
 
 
       <a
         class="player-card"
         href="/fundraiser.html?player=riley-suarez"
       >
-
         <div class="photo-wrap">
-
           <img
-            src="/players/riley-suarez.jpg"
+            src="/riley-suarez.jpeg"
             alt="Riley Suarez"
             class="player-photo"
           />
@@ -1311,13 +1041,10 @@
           <div class="jersey-badge">
             #21
           </div>
-
         </div>
 
         <div class="player-info">
-
           <div>
-
             <span class="player-name">
               Riley Suarez
             </span>
@@ -1325,28 +1052,20 @@
             <span class="support-text">
               Support Riley
             </span>
-
           </div>
 
-          <span class="arrow">
-            ›
-          </span>
-
+          <span class="arrow">›</span>
         </div>
-
       </a>
-
 
 
       <a
         class="player-card"
         href="/fundraiser.html?player=jayden-arencibia"
       >
-
         <div class="photo-wrap">
-
           <img
-            src="/players/jayden-arencibia.jpg"
+            src="/jayden-arencibia.jpeg"
             alt="Jayden Arencibia"
             class="player-photo"
           />
@@ -1356,13 +1075,10 @@
           <div class="jersey-badge">
             #22
           </div>
-
         </div>
 
         <div class="player-info">
-
           <div>
-
             <span class="player-name">
               Jayden Arencibia
             </span>
@@ -1370,28 +1086,20 @@
             <span class="support-text">
               Support Jayden
             </span>
-
           </div>
 
-          <span class="arrow">
-            ›
-          </span>
-
+          <span class="arrow">›</span>
         </div>
-
       </a>
-
 
 
       <a
         class="player-card"
         href="/fundraiser.html?player=dylan-botett"
       >
-
         <div class="photo-wrap">
-
           <img
-            src="/players/dylan-botett.jpg"
+            src="/dylan-botett.jpeg"
             alt="Dylan Botett"
             class="player-photo"
           />
@@ -1401,13 +1109,10 @@
           <div class="jersey-badge">
             #23
           </div>
-
         </div>
 
         <div class="player-info">
-
           <div>
-
             <span class="player-name">
               Dylan Botett
             </span>
@@ -1415,28 +1120,20 @@
             <span class="support-text">
               Support Dylan
             </span>
-
           </div>
 
-          <span class="arrow">
-            ›
-          </span>
-
+          <span class="arrow">›</span>
         </div>
-
       </a>
-
 
 
       <a
         class="player-card"
         href="/fundraiser.html?player=aramis-diaz"
       >
-
         <div class="photo-wrap">
-
           <img
-            src="/players/aramis-diaz.jpg"
+            src="/aramis-diaz.jpeg"
             alt="Aramis Diaz"
             class="player-photo"
           />
@@ -1446,13 +1143,10 @@
           <div class="jersey-badge">
             #24
           </div>
-
         </div>
 
         <div class="player-info">
-
           <div>
-
             <span class="player-name">
               Aramis Diaz
             </span>
@@ -1460,28 +1154,20 @@
             <span class="support-text">
               Support Aramis
             </span>
-
           </div>
 
-          <span class="arrow">
-            ›
-          </span>
-
+          <span class="arrow">›</span>
         </div>
-
       </a>
-
 
 
       <a
         class="player-card"
         href="/fundraiser.html?player=joseph-brady"
       >
-
         <div class="photo-wrap">
-
           <img
-            src="/players/joseph-brady.jpg"
+            src="/josephbrady27.jpeg"
             alt="Joseph Brady"
             class="player-photo"
           />
@@ -1491,13 +1177,10 @@
           <div class="jersey-badge">
             #27
           </div>
-
         </div>
 
         <div class="player-info">
-
           <div>
-
             <span class="player-name">
               Joseph Brady
             </span>
@@ -1505,28 +1188,20 @@
             <span class="support-text">
               Support Joseph
             </span>
-
           </div>
 
-          <span class="arrow">
-            ›
-          </span>
-
+          <span class="arrow">›</span>
         </div>
-
       </a>
-
 
 
       <a
         class="player-card"
         href="/fundraiser.html?player=santiago-ponce"
       >
-
         <div class="photo-wrap">
-
           <img
-            src="/players/santiago-ponce.jpg"
+            src="/santiago-ponce.jpeg"
             alt="Santiago Ponce"
             class="player-photo"
           />
@@ -1536,13 +1211,10 @@
           <div class="jersey-badge">
             #33
           </div>
-
         </div>
 
         <div class="player-info">
-
           <div>
-
             <span class="player-name">
               Santiago Ponce
             </span>
@@ -1550,28 +1222,20 @@
             <span class="support-text">
               Support Santiago
             </span>
-
           </div>
 
-          <span class="arrow">
-            ›
-          </span>
-
+          <span class="arrow">›</span>
         </div>
-
       </a>
-
 
 
       <a
         class="player-card"
         href="/fundraiser.html?player=sebastian-ponce"
       >
-
         <div class="photo-wrap">
-
           <img
-            src="/players/sebastian-ponce.jpg"
+            src="/sebastian-ponce.jpeg"
             alt="Sebastian Ponce"
             class="player-photo"
           />
@@ -1581,13 +1245,10 @@
           <div class="jersey-badge">
             #51
           </div>
-
         </div>
 
         <div class="player-info">
-
           <div>
-
             <span class="player-name">
               Sebastian Ponce
             </span>
@@ -1595,25 +1256,16 @@
             <span class="support-text">
               Support Sebastian
             </span>
-
           </div>
 
-          <span class="arrow">
-            ›
-          </span>
-
+          <span class="arrow">›</span>
         </div>
-
       </a>
-
 
     </div>
 
   </section>
 
-
-
-  <!-- GENERAL TEAM DONATION -->
 
   <section class="general-donation">
 
@@ -1621,33 +1273,24 @@
       Support the Entire Team
     </div>
 
-
     <h2 class="general-title">
       General Team Donation
     </h2>
 
-
     <p class="general-description">
-
-      Want to support the West Pines Cobras without
-      selecting a player or purchasing a baseball?
+      Want to support the West Pines Cobras without selecting
+      a player or purchasing a baseball?
       Enter any custom donation amount below.
-
     </p>
-
 
     <div class="general-form">
 
-
       <div class="general-field">
-
         <label for="generalDonationAmount">
           Donation Amount
         </label>
 
-
         <div class="amount-wrap">
-
           <span class="amount-symbol">
             $
           </span>
@@ -1660,19 +1303,14 @@
             inputmode="decimal"
             placeholder="100.00"
           />
-
         </div>
-
       </div>
 
 
-
       <div class="general-field">
-
         <label for="generalDonorName">
           Donor Name
         </label>
-
 
         <input
           id="generalDonorName"
@@ -1681,13 +1319,10 @@
           autocomplete="name"
           placeholder="Example: The Smith Family"
         />
-
       </div>
 
 
-
       <label class="anonymous-option">
-
         <input
           id="generalAnonymous"
           type="checkbox"
@@ -1696,9 +1331,7 @@
         <span>
           Remain Anonymous
         </span>
-
       </label>
-
 
 
       <button
@@ -1717,21 +1350,16 @@
 
 
       <p class="general-note">
-
         General donations support the West Pines Cobras directly
         and do not purchase or reserve a baseball.
-
       </p>
-
 
     </div>
 
   </section>
 
 
-
   <footer class="footer">
-
     <strong>
       WEST PINES COBRAS
     </strong>
@@ -1739,36 +1367,29 @@
     <br />
 
     Road to Cooperstown
-
   </footer>
 
 
-
   <script>
-
     const generalDonationAmount =
       document.getElementById(
         "generalDonationAmount"
       );
-
 
     const generalDonorName =
       document.getElementById(
         "generalDonorName"
       );
 
-
     const generalAnonymous =
       document.getElementById(
         "generalAnonymous"
       );
 
-
     const generalDonateButton =
       document.getElementById(
         "generalDonateButton"
       );
-
 
     const generalStatus =
       document.getElementById(
@@ -1780,48 +1401,36 @@
       message,
       type
     ) {
-
       generalStatus.textContent =
         message;
-
 
       generalStatus.className =
         "general-status " +
         type;
-
     }
 
 
     generalAnonymous.addEventListener(
       "change",
       () => {
-
         if (
           generalAnonymous.checked
         ) {
-
           generalDonorName.value =
             "";
-
 
           generalDonorName.disabled =
             true;
 
-
           generalDonorName.placeholder =
             "Anonymous donation";
-
         } else {
-
           generalDonorName.disabled =
             false;
 
-
           generalDonorName.placeholder =
             "Example: The Smith Family";
-
         }
-
       }
     );
 
@@ -1829,25 +1438,19 @@
     generalDonateButton.addEventListener(
       "click",
       async () => {
-
         const amount =
           Number(
             generalDonationAmount.value
           );
 
-
         let donorName;
-
 
         if (
           generalAnonymous.checked
         ) {
-
           donorName =
             "Anonymous";
-
         } else {
-
           donorName =
             generalDonorName
               .value
@@ -1857,24 +1460,18 @@
                 " "
               );
 
-
           if (
             !donorName
           ) {
-
             showGeneralStatus(
               "Please enter a donor name or select Remain Anonymous.",
               "error"
             );
 
-
             generalDonorName.focus();
 
-
             return;
-
           }
-
         }
 
 
@@ -1884,28 +1481,22 @@
           ) ||
           amount < 1
         ) {
-
           showGeneralStatus(
             "Please enter a donation amount of at least $1.",
             "error"
           );
 
-
           generalDonationAmount.focus();
 
-
           return;
-
         }
 
 
         generalDonateButton.disabled =
           true;
 
-
         generalDonateButton.textContent =
           "Creating Checkout...";
-
 
         showGeneralStatus(
           "Preparing secure checkout...",
@@ -1914,78 +1505,58 @@
 
 
         try {
-
           const response =
             await fetch(
               "/api/create-general-donation",
               {
-
                 method:
                   "POST",
 
                 headers: {
-
                   "Content-Type":
                     "application/json"
-
                 },
 
                 body:
                   JSON.stringify({
-
                     amount,
-
                     donorName,
-
                     anonymous:
                       generalAnonymous
                         .checked
-
                   })
-
               }
             );
-
 
           const data =
             await response.json();
 
-
           if (
             !response.ok
           ) {
-
             throw new Error(
               data.error ||
               "Unable to create donation checkout."
             );
-
           }
-
 
           if (
             !data.url
           ) {
-
             throw new Error(
               "Checkout URL was not returned."
             );
-
           }
-
 
           window.location.href =
             data.url;
 
-
         } catch (
           error
         ) {
-
           console.error(
             error
           );
-
 
           showGeneralStatus(
             error.message ||
@@ -1993,16 +1564,12 @@
             "error"
           );
 
-
           generalDonateButton.disabled =
             false;
 
-
           generalDonateButton.textContent =
             "Donate to the Cobras";
-
         }
-
       }
     );
 
@@ -2019,12 +1586,10 @@
       ) ===
       "success"
     ) {
-
       showGeneralStatus(
         "Thank you for supporting the West Pines Cobras!",
         "success"
       );
-
 
       document
         .querySelector(
@@ -2036,7 +1601,6 @@
               "smooth"
           }
         );
-
     }
 
 
@@ -2046,16 +1610,12 @@
       ) ===
       "canceled"
     ) {
-
       showGeneralStatus(
         "Donation checkout was canceled. No payment was made.",
         "error"
       );
-
     }
-
   </script>
-
 
 </main>
 
